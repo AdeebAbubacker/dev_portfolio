@@ -19,15 +19,6 @@ class MobileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void scrollToIndex(int index) {
-      scrollController.animateTo(
-        14,
-        // index * MediaQuery.of(context).size.height,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.ease,
-      );
-    }
-
     return ListView.builder(
       controller: scrollController,
       itemCount: 1,
@@ -233,13 +224,16 @@ class AboutMeSection extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         const HorizontalLine(),
+        const SizedBox(height: 30),
         Center(
           child: Text(
             "Technologiees I have worked with:",
             style: GoogleFonts.montserrat(textStyle: techiworkstyle),
           ),
         ),
+        const SizedBox(height: 10),
         const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               Icons.arrow_right_outlined,
@@ -261,6 +255,7 @@ class AboutMeSection extends StatelessWidget {
             Text('Node Js'),
           ],
         ),
+        const SizedBox(height: 30),
         const HorizontalLine(),
         const SizedBox(height: 20),
         Center(
@@ -333,7 +328,6 @@ final List<Widget> imageSliders = imgList
       ),
     )
     .toList();
-
 
 class ServiceSection extends StatelessWidget {
   const ServiceSection({

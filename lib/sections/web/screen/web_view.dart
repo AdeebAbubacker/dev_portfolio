@@ -22,15 +22,7 @@ class WebView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void scrollToIndex(int index) {
-      scrollController.animateTo(
-        14,
-        // index * MediaQuery.of(context).size.height,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.ease,
-      );
-    }
-
+   
     return ListView.builder(
       controller: scrollController,
       itemCount: 1,

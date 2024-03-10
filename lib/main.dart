@@ -47,6 +47,14 @@ class MyHomePage extends StatelessWidget {
       );
     }
 
+    void scrollWebToIndex(double index) {
+      _scrollController.animateTo(
+        index * MediaQuery.of(context).size.height,
+        duration: const Duration(milliseconds: 3000),
+        curve: Curves.ease,
+      );
+    }
+
     return Scaffold(
       appBar: MediaQuery.of(context).size.width > 1000
           ? PreferredSize(
@@ -87,48 +95,55 @@ class MyHomePage extends StatelessWidget {
                         color: Colors.white, // Set the background color here
                       ),
                     ),
-                    actions: const [
-                      NavBarActionButton(label: 'HOME', index: 1),
-                      NavBarActionButton(label: 'ABOUT', index: 1),
-                      NavBarActionButton(label: 'SERVICES', index: 1),
-                      NavBarActionButton(label: 'PROJECTS', index: 1),
-                      NavBarActionButton(label: 'CONTACT', index: 1),
-                      NavBarActionButton(label: 'RESUME', index: 1),
+                    actions: [
+                      NavBarActionButton(
+                        label: 'HOME',
+                        index: 1,
+                        onPressed: () {
+                          scrollToIndex(0);
+                        },
+                      ),
+                      NavBarActionButton(
+                        label: 'ABOUT',
+                        index: 1,
+                        onPressed: () {
+                          scrollToIndex(0.9);
+                        },
+                      ),
+                      NavBarActionButton(
+                        label: 'SERVICES',
+                        index: 1,
+                        onPressed: () {
+                          scrollToIndex(1.8);
+                        },
+                      ),
+                      NavBarActionButton(
+                        label: 'PROJECTS',
+                        index: 1,
+                        onPressed: () {
+                          scrollToIndex(2.7);
+                        },
+                      ),
+                      NavBarActionButton(
+                        label: 'CONTACT',
+                        index: 1,
+                        onPressed: () {
+                          scrollToIndex(3.4);
+                        },
+                      ),
+                      NavBarActionButton(
+                        label: 'RESUME',
+                        index: 1,
+                        onPressed: () {
+                          // scrollToIndex(0);
+                        },
+                      ),
                       SizedBox(width: 30),
                     ],
                   ),
-
-                  // Add other slivers as needed
-                  // ...
                 ],
               ),
             )
-
-          // ? AppBar(
-          //     backgroundColor: Colors.white,
-          //     elevation: 0.0,
-          //     title: Align(
-          //       alignment: Alignment.centerLeft,
-          //       child: Padding(
-          //         padding: const EdgeInsets.all(8.0),
-          //         child: Text(
-          //           '< Adeeb Abubacker />',
-          //           style: GoogleFonts.rockSalt(
-          //             textStyle: const TextStyle(fontSize: 18), // Example style
-          //           ),
-          //         ),
-          //       ),
-          //     ),
-          //     actions: const [
-          //       NavBarActionButton(label: 'HOME', index: 1),
-          //       NavBarActionButton(label: 'ABOUT', index: 1),
-          //       NavBarActionButton(label: 'SERVICES', index: 1),
-          //       NavBarActionButton(label: 'PROJECTS', index: 1),
-          //       NavBarActionButton(label: 'CONTACT', index: 1),
-          //       NavBarActionButton(label: 'RESUME', index: 1),
-          //       SizedBox(width: 30),
-          //     ],
-          //   )
           : AppBar(
               actions: [
                 Padding(

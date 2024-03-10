@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NavBarActionButton extends StatelessWidget {
+  final VoidCallback onPressed;
+    
   final String label;
   final int index;
   const NavBarActionButton({
     Key? key,
     required this.label,
     required this.index,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -25,9 +28,7 @@ class NavBarActionButton extends StatelessWidget {
           splashColor: Colors.white54,
           highlightColor: Color(0x89FFFFFF),
           hoverColor: Color.fromARGB(255, 242, 56, 43),
-          onPressed: () {
-            // scrollProvider.scroll(index);
-          },
+          onPressed: onPressed,
           child: Padding(
             padding: EdgeInsets.all(9),
             child: Text(
