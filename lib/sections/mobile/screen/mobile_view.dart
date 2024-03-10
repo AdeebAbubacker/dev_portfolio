@@ -334,6 +334,7 @@ final List<Widget> imageSliders = imgList
     )
     .toList();
 
+
 class ServiceSection extends StatelessWidget {
   const ServiceSection({
     super.key,
@@ -341,47 +342,54 @@ class ServiceSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          const SizedBox(height: 20),
-          TextButton(
-            style: ButtonStyle(
-              overlayColor: MaterialStateColor.resolveWith(
-                  (states) => Color.fromARGB(255, 234, 181, 178)),
-              tapTargetSize: MaterialTapTargetSize
-                  .shrinkWrap, // Disable splash effect on tap
+    return Column(
+      children: [
+        const SizedBox(height: 20),
+        TextButton(
+          style: ButtonStyle(
+            overlayColor: MaterialStateColor.resolveWith(
+                (states) => Color.fromARGB(255, 234, 181, 178)),
+            tapTargetSize: MaterialTapTargetSize
+                .shrinkWrap, // Disable splash effect on tap
+          ),
+          onPressed: () {},
+          child: Text(
+            'Resume',
+            style: GoogleFonts.montserrat(textStyle: resumestyle),
+          ),
+        ),
+        const SizedBox(height: 10),
+        Text(
+          'What I can do ?',
+          style: GoogleFonts.montserrat(textStyle: aboutmeheadingstyle),
+        ),
+        const SizedBox(height: 10),
+        Text(
+          "I may not be perfect but surely I'm of some use",
+          style: GoogleFonts.montserrat(textStyle: carouselsubheadingstyle),
+        ),
+        const SizedBox(height: 50),
+        Container(
+          width: double.infinity,
+          height: 200, // Fixed height for the carousel
+          child: CarouselSlider(
+            options: CarouselOptions(
+              viewportFraction: 0.95,
+              autoPlay: true,
+              aspectRatio: 1 / 0.5,
+              enlargeCenterPage: true,
             ),
-            onPressed: () {},
-            child: Text(
-              'Resume',
-              style: GoogleFonts.montserrat(textStyle: resumestyle),
-            ),
+            items: imageSliders.map((item) {
+              return Container(
+                width: 200, // Fixed width for each carousel item
+                height: 200 * 0.5, // Fixed height for each carousel item
+                child: item,
+              );
+            }).toList(),
           ),
-          const SizedBox(height: 10),
-          Text(
-            'What I can do ?',
-            style: GoogleFonts.montserrat(textStyle: aboutmeheadingstyle),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            "I may not be perfect but surely I'm of some use",
-            style: GoogleFonts.montserrat(textStyle: carouselsubheadingstyle),
-          ),
-          const SizedBox(height: 50),
-          Container(
-            child: CarouselSlider(
-              options: CarouselOptions(
-                viewportFraction: 0.55,
-                autoPlay: true,
-                aspectRatio: 4 / 2,
-                enlargeCenterPage: true,
-              ),
-              items: imageSliders,
-            ),
-          ),
-        ],
-      ),
+        ),
+        SizedBox(height: 20),
+      ],
     );
   }
 }
@@ -406,19 +414,25 @@ class ProjectSection extends StatelessWidget {
         ),
         SizedBox(height: 50),
         Container(
+          width: double.infinity,
+          height: 200, // Fixed height for the carousel
           child: CarouselSlider(
             options: CarouselOptions(
-              viewportFraction: 0.85,
+              viewportFraction: 0.95,
               autoPlay: true,
-              aspectRatio: 19 / 8,
+              aspectRatio: 1 / 0.5,
               enlargeCenterPage: true,
             ),
-            items: potfolioSliders,
+            items: potfolioSliders.map((item) {
+              return Container(
+                width: 400, // Fixed width for each carousel item
+                height: 200 * 0.5, // Fixed height for each carousel item
+                child: item,
+              );
+            }).toList(),
           ),
         ),
-        SizedBox(
-          height: 20,
-        ),
+        SizedBox(height: 20),
       ],
     );
   }
@@ -444,6 +458,8 @@ class ContactSection extends StatelessWidget {
         ),
         SizedBox(height: 50),
         Container(
+          width: double.infinity,
+          height: 200, // Fixed height for the carousel
           child: CarouselSlider(
             options: CarouselOptions(
               viewportFraction: 0.95,
@@ -451,7 +467,13 @@ class ContactSection extends StatelessWidget {
               aspectRatio: 1 / 0.5,
               enlargeCenterPage: true,
             ),
-            items: contactusSliders,
+            items: contactusSliders.map((item) {
+              return Container(
+                width: 300, // Fixed width for each carousel item
+                height: 200 * 0.5, // Fixed height for each carousel item
+                child: item,
+              );
+            }).toList(),
           ),
         ),
         SizedBox(height: 20),
@@ -459,6 +481,43 @@ class ContactSection extends StatelessWidget {
     );
   }
 }
+
+// class ContactSection extends StatelessWidget {
+//   const ContactSection({
+//     super.key,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+
+//     return Column(
+//       children: [
+//         SizedBox(height: 50),
+//         Text(
+//           'Get in Touch',
+//           style: GoogleFonts.montserrat(textStyle: aboutmeheadingstyle),
+//         ),
+//         Text(
+//           "Let's build something together",
+//           style: GoogleFonts.montserrat(textStyle: carouselsubheadingstyle),
+//         ),
+//         SizedBox(height: 50),
+//         Container(
+//           child: CarouselSlider(
+//             options: CarouselOptions(
+//               viewportFraction: 0.95,
+//               autoPlay: true,
+//               aspectRatio: 1 / 0.5 ,
+//               enlargeCenterPage: true,
+//             ),
+//             items: contactusSliders,
+//           ),
+//         ),
+//         SizedBox(height: 20),
+//       ],
+//     );
+//   }
+// }
 
 class HorizontalLine extends StatelessWidget {
   const HorizontalLine({super.key});

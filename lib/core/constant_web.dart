@@ -10,7 +10,7 @@ const TextStyle welcomestyle = TextStyle(
 const TextStyle welcomesmallstyle = TextStyle(
   fontWeight: FontWeight.normal,
   color: const Color.fromARGB(255, 41, 41, 41),
-  fontSize: 6,
+  fontSize: 19,
 );
 
 const TextStyle name1style = TextStyle(
@@ -22,8 +22,10 @@ const TextStyle name1style = TextStyle(
 const TextStyle name1smallstyle = TextStyle(
   fontWeight: FontWeight.normal,
   color: Color.fromARGB(255, 41, 41, 41),
-  fontSize: 62,
+  fontSize: 43,
 );
+
+
 
 const TextStyle animatedtextstyle = TextStyle(
   fontWeight: FontWeight.w500,

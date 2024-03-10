@@ -88,226 +88,341 @@ class HomeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (constraints.maxHeight < 995 ) {
-          Timer.periodic(Duration(seconds: 1), (timer) {
-            print(constraints.maxWidth);
-          });
-             return Column(
+    final width = MediaQuery.of(context).size.width;
+    Timer.periodic(Duration(seconds: 3), (timer) {
+      print(width);
+    });
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 140,
+            right: 40,
+          ),
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 80,
-                  right: 40,
-                ),
-                child: Row(
+              Expanded(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
                   children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          SizedBox(height: 140),
-                          Row(
-                            children: [
-                              Text(
-                                'WELCOME TO MY PORTFOLIO!',
-                                style: GoogleFonts.montserrat(
-                                    textStyle: welcomesmallstyle),
-                              ),
-                              const SizedBox(width: 10),
-                              Image.asset(
-                                'assets/hi.gif',
-                                height: 36,
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            'ADEEB ',
-                            style: GoogleFonts.montserrat(
-                              textStyle: name1smallstyle,
-                            ),
-                          ),
-                          Text(
-                            'ABUBACKER ',
-                            style: GoogleFonts.montserrat(
-                              textStyle: name1smallstyle,
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              const Icon(
-                                Icons.arrow_right_outlined,
-                                color: Color.fromARGB(255, 172, 38, 29),
-                                size: 30,
-                              ),
-                              AnimatedTextKit(
-                                animatedTexts: [
-                                  TyperAnimatedText(
-                                    ' Flutter Developer',
-                                    textStyle: GoogleFonts.montserrat(
-                                      textStyle: animatedtextstyle,
-                                    ),
-                                    speed: const Duration(milliseconds: 50),
-                                  ),
-                                  TyperAnimatedText(
-                                    ' UI/UX Enthusiast',
-                                    textStyle: GoogleFonts.montserrat(
-                                      textStyle: animatedtextstyle,
-                                    ),
-                                    speed: const Duration(milliseconds: 50),
-                                  ),
-                                  TyperAnimatedText(
-                                    ' A friend 😊',
-                                    textStyle: GoogleFonts.montserrat(
-                                      textStyle: animatedtextstyle,
-                                    ),
-                                    speed: const Duration(milliseconds: 50),
-                                  ),
-                                ],
-                                repeatForever: true,
-                                isRepeatingAnimation: true,
-                              ),
-                            ],
-                          ),
-                        ],
+                    SizedBox(height: 140),
+                    Row(
+                      children: [
+                        Text(
+                          'WELCOME TO MY PORTFOLIO!',
+                          style: width < 1035
+                              ? GoogleFonts.montserrat(
+                                  textStyle: welcomesmallstyle)
+                              : GoogleFonts.montserrat(textStyle: welcomestyle),
+                        ),
+                        const SizedBox(width: 10),
+                        Image.asset(
+                          'assets/hi.gif',
+                          height: 43,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'ADEEB ',
+                      style: GoogleFonts.montserrat(
+                        textStyle: width < 1035 ? name1smallstyle : name1style,
                       ),
                     ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/photos/adeeb_bw.png',
-                            // width: 310,
-                            height: 500,
-                          ),
-                        ],
+                    Text(
+                      'ABUBACKER ',
+                      style: GoogleFonts.montserrat(
+                        textStyle: width < 1035 ? name1smallstyle : name1style,
                       ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Icon(
+                          Icons.arrow_right_outlined,
+                          color: Color.fromARGB(255, 172, 38, 29),
+                          size: 30,
+                        ),
+                        AnimatedTextKit(
+                          animatedTexts: [
+                            TyperAnimatedText(
+                              ' Flutter Developer',
+                              textStyle: GoogleFonts.montserrat(
+                                textStyle: animatedtextstyle,
+                              ),
+                              speed: const Duration(milliseconds: 50),
+                            ),
+                            TyperAnimatedText(
+                              ' UI/UX Enthusiast',
+                              textStyle: GoogleFonts.montserrat(
+                                textStyle: animatedtextstyle,
+                              ),
+                              speed: const Duration(milliseconds: 50),
+                            ),
+                            TyperAnimatedText(
+                              ' A friend 😊',
+                              textStyle: GoogleFonts.montserrat(
+                                textStyle: animatedtextstyle,
+                              ),
+                              speed: const Duration(milliseconds: 50),
+                            ),
+                          ],
+                          repeatForever: true,
+                          isRepeatingAnimation: true,
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 70),
-            ],
-          );
-       
-       
-     } else {
-       
-             return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 140,
-                  right: 40,
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          SizedBox(height: 140),
-                          Row(
-                            children: [
-                              Text(
-                                'WELCOME TO MY PORTFOLIO!',
-                                style: GoogleFonts.montserrat(
-                                    textStyle: welcomestyle),
-                              ),
-                              const SizedBox(width: 10),
-                              Image.asset(
-                                'assets/hi.gif',
-                                height: 43,
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            'ADEEB ',
-                            style: GoogleFonts.montserrat(
-                              textStyle: name1style,
-                            ),
-                          ),
-                          Text(
-                            'ABUBACKER ',
-                            style: GoogleFonts.montserrat(
-                              textStyle: name1style,
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              const Icon(
-                                Icons.arrow_right_outlined,
-                                color: Color.fromARGB(255, 172, 38, 29),
-                                size: 30,
-                              ),
-                              AnimatedTextKit(
-                                animatedTexts: [
-                                  TyperAnimatedText(
-                                    ' Flutter Developer',
-                                    textStyle: GoogleFonts.montserrat(
-                                      textStyle: animatedtextstyle,
-                                    ),
-                                    speed: const Duration(milliseconds: 50),
-                                  ),
-                                  TyperAnimatedText(
-                                    ' UI/UX Enthusiast',
-                                    textStyle: GoogleFonts.montserrat(
-                                      textStyle: animatedtextstyle,
-                                    ),
-                                    speed: const Duration(milliseconds: 50),
-                                  ),
-                                  TyperAnimatedText(
-                                    ' A friend 😊',
-                                    textStyle: GoogleFonts.montserrat(
-                                      textStyle: animatedtextstyle,
-                                    ),
-                                    speed: const Duration(milliseconds: 50),
-                                  ),
-                                ],
-                                repeatForever: true,
-                                isRepeatingAnimation: true,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/photos/adeeb_bw.png',
-                            // width: 310,
-                            height: 500,
-                          ),
-                        ],
-                      ),
+                    Image.asset(
+                      'assets/photos/adeeb_bw.png',
+                      // width: 310,
+                      height: 500,
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 70),
             ],
-          );
-       
-        }
-      },
+          ),
+        ),
+        const SizedBox(height: 70),
+      ],
     );
   }
 }
+
+// class HomeSection extends StatelessWidget {
+//   const HomeSection({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return LayoutBuilder(
+//       builder: (context, constraints) {
+//         if (constraints.maxHeight < 995 ) {
+//           Timer.periodic(Duration(seconds: 1), (timer) {
+//             print(constraints.maxWidth);
+//           });
+//              return Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               Padding(
+//                 padding: const EdgeInsets.only(
+//                   left: 80,
+//                   right: 40,
+//                 ),
+//                 child: Row(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     Expanded(
+//                       child: Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         mainAxisSize: MainAxisSize.max,
+//                         children: [
+//                           SizedBox(height: 140),
+//                           Row(
+//                             children: [
+//                               Text(
+//                                 'WELCOME TO MY PORTFOLIO!',
+//                                 style: GoogleFonts.montserrat(
+//                                     textStyle: welcomesmallstyle),
+//                               ),
+//                               const SizedBox(width: 10),
+//                               Image.asset(
+//                                 'assets/hi.gif',
+//                                 height: 36,
+//                               ),
+//                             ],
+//                           ),
+//                           SizedBox(height: 10),
+//                           Text(
+//                             'ADEEB ',
+//                             style: GoogleFonts.montserrat(
+//                               textStyle: name1smallstyle,
+//                             ),
+//                           ),
+//                           Text(
+//                             'ABUBACKER ',
+//                             style: GoogleFonts.montserrat(
+//                               textStyle: name1smallstyle,
+//                             ),
+//                           ),
+//                           Row(
+//                             mainAxisAlignment: MainAxisAlignment.start,
+//                             children: [
+//                               const Icon(
+//                                 Icons.arrow_right_outlined,
+//                                 color: Color.fromARGB(255, 172, 38, 29),
+//                                 size: 30,
+//                               ),
+//                               AnimatedTextKit(
+//                                 animatedTexts: [
+//                                   TyperAnimatedText(
+//                                     ' Flutter Developer',
+//                                     textStyle: GoogleFonts.montserrat(
+//                                       textStyle: animatedtextstyle,
+//                                     ),
+//                                     speed: const Duration(milliseconds: 50),
+//                                   ),
+//                                   TyperAnimatedText(
+//                                     ' UI/UX Enthusiast',
+//                                     textStyle: GoogleFonts.montserrat(
+//                                       textStyle: animatedtextstyle,
+//                                     ),
+//                                     speed: const Duration(milliseconds: 50),
+//                                   ),
+//                                   TyperAnimatedText(
+//                                     ' A friend 😊',
+//                                     textStyle: GoogleFonts.montserrat(
+//                                       textStyle: animatedtextstyle,
+//                                     ),
+//                                     speed: const Duration(milliseconds: 50),
+//                                   ),
+//                                 ],
+//                                 repeatForever: true,
+//                                 isRepeatingAnimation: true,
+//                               ),
+//                             ],
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                     Expanded(
+//                       child: Column(
+//                         crossAxisAlignment: CrossAxisAlignment.center,
+//                         children: [
+//                           Image.asset(
+//                             'assets/photos/adeeb_bw.png',
+//                             // width: 310,
+//                             height: 500,
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               const SizedBox(height: 70),
+//             ],
+//           );
+
+//      } else {
+
+//              return Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               Padding(
+//                 padding: const EdgeInsets.only(
+//                   left: 140,
+//                   right: 40,
+//                 ),
+//                 child: Row(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     Expanded(
+//                       child: Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         mainAxisSize: MainAxisSize.max,
+//                         children: [
+//                           SizedBox(height: 140),
+//                           Row(
+//                             children: [
+//                               Text(
+//                                 'WELCOME TO MY PORTFOLIO!',
+//                                 style: GoogleFonts.montserrat(
+//                                     textStyle: welcomestyle),
+//                               ),
+//                               const SizedBox(width: 10),
+//                               Image.asset(
+//                                 'assets/hi.gif',
+//                                 height: 43,
+//                               ),
+//                             ],
+//                           ),
+//                           SizedBox(height: 10),
+//                           Text(
+//                             'ADEEB ',
+//                             style: GoogleFonts.montserrat(
+//                               textStyle: name1style,
+//                             ),
+//                           ),
+//                           Text(
+//                             'ABUBACKER ',
+//                             style: GoogleFonts.montserrat(
+//                               textStyle: name1style,
+//                             ),
+//                           ),
+//                           Row(
+//                             mainAxisAlignment: MainAxisAlignment.start,
+//                             children: [
+//                               const Icon(
+//                                 Icons.arrow_right_outlined,
+//                                 color: Color.fromARGB(255, 172, 38, 29),
+//                                 size: 30,
+//                               ),
+//                               AnimatedTextKit(
+//                                 animatedTexts: [
+//                                   TyperAnimatedText(
+//                                     ' Flutter Developer',
+//                                     textStyle: GoogleFonts.montserrat(
+//                                       textStyle: animatedtextstyle,
+//                                     ),
+//                                     speed: const Duration(milliseconds: 50),
+//                                   ),
+//                                   TyperAnimatedText(
+//                                     ' UI/UX Enthusiast',
+//                                     textStyle: GoogleFonts.montserrat(
+//                                       textStyle: animatedtextstyle,
+//                                     ),
+//                                     speed: const Duration(milliseconds: 50),
+//                                   ),
+//                                   TyperAnimatedText(
+//                                     ' A friend 😊',
+//                                     textStyle: GoogleFonts.montserrat(
+//                                       textStyle: animatedtextstyle,
+//                                     ),
+//                                     speed: const Duration(milliseconds: 50),
+//                                   ),
+//                                 ],
+//                                 repeatForever: true,
+//                                 isRepeatingAnimation: true,
+//                               ),
+//                             ],
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                     Expanded(
+//                       child: Column(
+//                         crossAxisAlignment: CrossAxisAlignment.center,
+//                         children: [
+//                           Image.asset(
+//                             'assets/photos/adeeb_bw.png',
+//                             // width: 310,
+//                             height: 500,
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               const SizedBox(height: 70),
+//             ],
+//           );
+
+//         }
+//       },
+//     );
+//   }
+// }
 
 class AboutMeSection extends StatelessWidget {
   AboutMeSection({
